@@ -1,0 +1,59 @@
+
+models:
+  - name: job_postings
+    description: "Data crawl directly from the source."
+    config: 
+      persist_docs:
+        relation: true
+        columns: true
+    columns:
+      - name: job_id
+        description: "The unique identifier for each job posting."
+      - name: job_title
+        description: "The term used to search for the job posting."
+      - name: company_name
+        description: "The title of the job posting."
+      - name: job_location
+        description: "The location of the job posting."
+      - name: job_via
+        description: "The platform or method used to post the job."
+      - name: job_salary
+        description: "The salary range for the job posting."
+      - name: job_schedule_type
+        description: "The type of schedule for the job posting."
+      - name: job_work_from_home
+        description: "Indicates if the job allows working from home."
+      - name: job_extensions_raw
+        description: "Raw data about the extensions of the job posting."
+      - name: search_date
+        description: "The date when the job posting was searched."
+      - name: search_time
+        description: "The time when the job posting was searched."
+      - name: search_term
+        description: "The term used to search for the job posting."
+      - name: search_location
+        description: "The location where the job posting was searched."
+  - name: job_per_month
+    description: "Aggregated job postings by month and role."
+    config: 
+      persist_docs:
+        relation: true
+        columns: true
+    columns:
+      - name: search_month
+        description: "The month when the job postings were searched."
+      - name: role
+        description: "The term used to search for the job postings."
+      - name: postings
+        description: "The count of job postings for each role in a given month."
+  - name: top_locations
+    description: "Aggregated job postings by location and role."
+    config: 
+      persist_docs:
+        relation: true
+        columns: true
+    columns:
+      - name: job_location
+        description: "The location where the job postings were searched."
+      - name: postings
+        description: "The count of job postings for each location."

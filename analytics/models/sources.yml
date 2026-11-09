@@ -1,0 +1,7 @@
+sources:
+  - name: raw
+    tables:
+      - name: job_postings
+        description: "Table containing job postings with search dates and terms."
+        config:
+          external_location: "read_parquet('../data/raw/raw_job_postings_*.parquet')"
