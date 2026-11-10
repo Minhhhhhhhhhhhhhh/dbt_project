@@ -57,3 +57,21 @@ models:
         description: "The location where the job postings were searched."
       - name: postings
         description: "The count of job postings for each location."
+  - name: monthly_summary
+    description: "Aggregated job postings by month, including total postings and remote postings."
+    config: 
+      persist_docs:
+        relation: true
+        columns: true
+    columns:
+      - name: search_month
+        description: "The month when the job postings were searched."
+        data_tests:
+          - not_null
+          - unique
+      - name: total_postings
+        description: "The total count of job postings for each month."
+      - name: remote_postings
+        description: "The count of job postings that allow working from home for each month."
+      - name: pct_remote
+        description: "The percentage of job postings that allow working from home for each month."
